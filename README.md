@@ -19,7 +19,7 @@ How to Use This Framework:
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [JFAnalyticsClient clientWithProjectID:@“YOUR-KEEN.IO-PROJECT-KEY” writeKey:@“YOUR-KEEN.IO-WRITE-KEY” readKey:@“”YOUR-KEEN.IO-READ-KEY];
+    [JFAnalyticsClient clientWithProjectID:@"YOUR-KEEN.IO-PROJECT-KEY" writeKey:@"YOUR-KEEN.IO-WRITE-KEY" readKey:@"YOUR-KEEN.IO-READ-KEY"];
     
     // Additional application setup here
 
@@ -76,9 +76,9 @@ How to Use This Framework:
 /**
  * Fire custom tags by simply passing in an NSDictionary of KVP's
  */
-[[RPAnalyticsManager sharedInstance] fire:@{@“tap”: @“Dismiss Button“}];
-[[RPAnalyticsManager sharedInstance] fire:@{@“screen”: @"Map”, @“action”: @“search”}];
-[[RPAnalyticsManager sharedInstance] fire:@{@“screen”: @"Detail", @"type": @"pageview"}];
+[[RPAnalyticsManager sharedInstance] fire:@{@"tap": @"Dismiss Button"}];
+[[RPAnalyticsManager sharedInstance] fire:@{@"screen": @"Map", @"action": @"search"}];
+[[RPAnalyticsManager sharedInstance] fire:@{@"screen": @"Detail", @"type": @"pageview"}];
 ```
 
 Queued tags will be sent after the `tagQueueLimit` has been reached and there are no tags currently being sent. Also when the application is backgrounded.
