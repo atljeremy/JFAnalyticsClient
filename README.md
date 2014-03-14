@@ -40,12 +40,10 @@ How to Use This Framework:
 }
 ```
 
-#### Step 3: Send all queued tags when a user leaves the application to ensure tags are not lost (if user never returns). Also, call processSession to ensure proper session handling.
+#### Step 3: Send all queued tags when a user leaves the application to ensure tags are not lost (if user never returns).
 ```objective-c
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [[JFAnalyticsClient sharedClient] markTimePaused];
-
     UIBackgroundTaskIdentifier taskId = [application beginBackgroundTaskWithExpirationHandler:^(void) {
         NSLog(@"Background task is being expired.");
     }];
