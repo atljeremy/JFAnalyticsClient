@@ -27,11 +27,11 @@
 
 @interface NSString (utils)
 
-- (NSString*)urlEncodedString;
-- (NSString*)urlDecodedString;
-- (NSString*)stringFromMD5;
-- (NSString*)stringByAppendingQueryParameters:(NSDictionary *)queryParameters;
-- (NSArray*)keyValueArrayFromQuery;
-- (NSDictionary*)parseKeyValueFromQueryString;
+- (NSString*)JF_urlEncodedString;
+- (NSString*)JF_urlDecodedString;
+- (NSString*)JF_stringFromMD5;
+- (NSString*)JF_stringByAppendingQueryParameters:(NSDictionary *)queryParameters;
+- (NSArray*)JF_keyValueArrayFromQueryString;
+- (NSDictionary*)JF_keyValueFromQueryString;
 
 @end

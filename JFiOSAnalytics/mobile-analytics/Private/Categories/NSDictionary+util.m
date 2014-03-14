@@ -53,7 +53,7 @@
 - (void)URLEncodeParts:(NSMutableArray *)parts path:(NSString *)inPath
 {
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
-        NSString *encodedKey = [[key description] urlEncodedString];
+        NSString *encodedKey = [[key description] JF_urlEncodedString];
         NSString *path = inPath ? [inPath stringByAppendingFormat:@"[%@]", encodedKey] : encodedKey;
         
         if ([value isKindOfClass:[NSArray class]]) {
@@ -76,7 +76,7 @@
 
 - (void)URLEncodePart:(NSMutableArray *)parts path:(NSString *)path value:(id)value
 {
-    NSString *encodedPart = [[value description] urlEncodedString];
+    NSString *encodedPart = [[value description] JF_urlEncodedString];
     [parts addObject:[NSString stringWithFormat:@"%@=%@", path, encodedPart]];
 }
 

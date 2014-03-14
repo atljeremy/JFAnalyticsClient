@@ -28,7 +28,7 @@
 
 @implementation NSString (utils)
 
-- (NSString *)stringFromMD5 {
+- (NSString *)JF_stringFromMD5 {
     
     if(self == nil || [self length] == 0)
         return nil;
@@ -46,7 +46,7 @@
     return outputString;
 }
 
-- (NSString*)urlEncodedString {
+- (NSString*)JF_urlEncodedString {
     return CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
                                                                      (CFStringRef)self,
                                                                      NULL,
@@ -54,11 +54,11 @@
                                                                      CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)));
 }
 
-- (NSString*)urlDecodedString {
+- (NSString*)JF_urlDecodedString {
     return [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (NSString*)stringByAppendingQueryParameters:(NSDictionary *)queryParameters
+- (NSString*)JF_stringByAppendingQueryParameters:(NSDictionary *)queryParameters
 {
     if ([queryParameters count] > 0) {
         return [NSString stringWithFormat:@"%@?%@", self, [queryParameters stringWithURLEncodedEntries]];
@@ -66,7 +66,7 @@
     return [NSString stringWithString:self];
 }
 
-- (NSArray *)keyValueArrayFromQuery
+- (NSArray *)JF_keyValueArrayFromQueryString
 {
     NSString* decodedQuery = [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSRange range = [decodedQuery rangeOfString:@"?"];
@@ -86,11 +86,11 @@
     return keyValues;
 }
 
-- (NSDictionary*)parseKeyValueFromQueryString
+- (NSDictionary*)JF_keyValueFromQueryString
 {
     NSMutableDictionary* keyValueDictionary = [@{} mutableCopy];
     if (self && ![self isKindOfClass:[NSNull class]]) {
-        NSArray *keyValues = [self keyValueArrayFromQuery];
+        NSArray *keyValues = [self JF_keyValueArrayFromQueryString];
         for (NSString *keyValuePair in keyValues) {
             NSArray *pairComponents = [keyValuePair componentsSeparatedByString:@"="];
             NSString *key = pairComponents[0];

@@ -195,7 +195,7 @@ static JFAnalyticsClient* _sharedClient = nil;
         NSMutableArray* tagsToDelete = [@[] mutableCopy];
         NSMutableArray* tagsDictArray = [@[] mutableCopy];
         for (NSString* tagString in tags) {
-            NSDictionary* tag = [tagString parseKeyValueFromQueryString];
+            NSDictionary* tag = [tagString JF_keyValueFromQueryString];
             if (tag) {
                 [tagsToDelete  addObject:tagString];
                 [tagsDictArray addObject:tag];
