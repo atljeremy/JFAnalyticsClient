@@ -73,6 +73,8 @@ static JFAnalyticsClient* _sharedClient = nil;
         _sharedClient.projectID = projectID;
         _sharedClient.writeKey = writeKey;
         _sharedClient.readKey = readKey;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:_sharedClient selector:@selector(processSession) name:UIApplicationDidBecomeActiveNotification object:nil];
     });
     
     return _sharedClient;

@@ -37,8 +37,6 @@ How to Use This Framework:
 #else
     [[JFAnalyticsCLient sharedInstance] setEnvironment:@"prod"];
 #endif
-    
-    [[JFAnalyticsClient sharedInstance] processSession];
 }
 ```
 
