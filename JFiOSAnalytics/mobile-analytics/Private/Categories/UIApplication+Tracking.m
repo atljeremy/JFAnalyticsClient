@@ -35,8 +35,8 @@
     dispatch_once(&onceToken, ^{
         Class class = [self class];
         
-        SEL originalSelector = @selector(sendEvent:);
-        SEL swizzledSelector = @selector(JF_sendEvent:);
+        SEL originalSelector = @selector(sendAction:to:from:forEvent:);
+        SEL swizzledSelector = @selector(JF_sendAction:to:from:forEvent:);
         
         Method originalMethod = class_getInstanceMethod(class, originalSelector);
         Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
@@ -51,34 +51,39 @@
     });
 }
 
-- (void)JF_sendEvent:(UIEvent *)event
+- (BOOL)JF_sendAction:(SEL)action to:(id)target from:(id)sender forEvent:(UIEvent *)event
 {
-    UIView* view = ((UITouch*)event.allTouches.allObjects[0]).view;
-    NSString* viewName = [self getDetailedName:view];
-    NSString* superViewName = NSStringFromClass(view.superview.class);
-    NSString* fullTag = [NSString stringWithFormat:@"%@_%@_Tapped", superViewName, viewName];
-    if (viewName && viewName.length > 0 && superViewName && superViewName.length > 0) {
-        [[JFAnalyticsClient sharedClient] fire:@{@"tap": fullTag}];
+    UIView* view = (UIView*)sender;
+    NSString* viewName = NSStringFromClass(view.class);
+    NSString* viewDetailedName = [self getDetailedName:view];
+    if (viewDetailedName.length == 0) {
+        view = (UIView*)target;
+        viewName = NSStringFromClass(view.class);
+        viewDetailedName = [self getDetailedName:view];
     }
-    [self JF_sendEvent:event];
+    const char* superviewClassName = object_getClassName(target);
+    NSString* superviewName = [NSString stringWithUTF8String:superviewClassName];
+    if (viewName && viewName.length > 0 && superviewName && superviewName.length > 0) {
+        [[JFAnalyticsClient sharedClient] fire:@{@"element-desc": viewDetailedName, @"element": viewName, @"superview": superviewName}];
+    }
+    
+    return [self JF_sendAction:action to:target from:sender forEvent:event];
 }
 
 - (NSString*)getDetailedName:(UIView*)view
 {
-    NSString* name = NSStringFromClass(view.class);
+    NSString* name = @"";
     if ([view isKindOfClass:UIButton.class]) {
-        name = [NSString stringWithFormat:@"%@_%@", ((UIButton*)view).titleLabel.text, name];
-    } else if ([view isKindOfClass:UISegmentedControl.class]) {
-        
-    } else if ([view isKindOfClass:UISlider.class]) {
-        
-    } else if ([view isKindOfClass:UISwitch.class]) {
-        
-    } else if ([view isKindOfClass:UIStepper.class]) {
-        
+        for (UIView* subview in view.subviews) {
+            if ([subview isKindOfClass:UILabel.class]) {
+                name = ((UILabel*)subview).text;
+            }
+        }
+    } else if ([view isKindOfClass:UIBarItem.class]) {
+        name = ((UIBarButtonItem*)view).title;
     }
     
-    return [name stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    return [name stringByReplacingOccurrencesOfString:@" " withString:@"-"];
 }
 
 @end

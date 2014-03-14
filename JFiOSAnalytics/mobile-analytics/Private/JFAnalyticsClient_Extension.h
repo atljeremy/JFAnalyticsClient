@@ -20,7 +20,7 @@ static NSInteger const kJFAnalyticsClientDefaultTagQueueLimit = 20;
 @property (nonatomic, assign) BOOL includeFirstVisit;
 @property (nonatomic, strong) NSString *lastUsedVersion;
 @property (nonatomic, assign, getter = isSendingTags) BOOL sendingTags;
-@property (nonatomic, strong, readwrite) NSString *site;
+@property (nonatomic, strong, readwrite) NSString *environment;
 @property (nonatomic, strong, readwrite) NSMutableDictionary* globalTags;
 @property (nonatomic, assign, readwrite) NSInteger tagQueueLimit;
 @property (nonatomic, strong, readwrite) NSString *projectID;

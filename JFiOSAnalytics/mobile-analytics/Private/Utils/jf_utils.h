@@ -24,6 +24,7 @@
  */
 
 #define APP_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]
+#define APP_NAME [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
 #define IS_568_SCREEN ([[UIScreen mainScreen]bounds].size.height == 568)
 #define IS_IPHONE ([[[UIDevice currentDevice] model] rangeOfString:@"iPhone"].location != NSNotFound)
 #define IS_IPOD   ([[[UIDevice currentDevice] model] rangeOfString:@"iPod"].location != NSNotFound)

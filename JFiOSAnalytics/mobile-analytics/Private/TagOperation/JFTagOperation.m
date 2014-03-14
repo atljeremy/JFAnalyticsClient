@@ -80,8 +80,7 @@ static NSString* const kKeenApiVersion = @"3.0";
             return;
         }
         
-        NSDictionary* tagDictionary = @{@"tags": @[self.tag]};
-        NSData* data = [NSJSONSerialization dataWithJSONObject:tagDictionary options:NSJSONWritingPrettyPrinted error:nil];
+        NSData* data = [NSJSONSerialization dataWithJSONObject:self.tag options:NSJSONWritingPrettyPrinted error:nil];
         [request setValue:[NSString stringWithFormat:@"%lud",(unsigned long) [data length]] forHTTPHeaderField:@"Content-Length"];
         [request setHTTPBody:data];
         

@@ -34,7 +34,7 @@ NSString* const kJFAnalyticsCacheRemoveRequestFailedNotification = @"JFAnalytics
 static NSString* const kJFAnalyticsClientRequestCachePlist = @"JFAnalyticsClientTagCache.plist";
 static NSString* const kJFAnalyticsClientDataKey = @"data";
 static NSString* const kJFAnalyticsClientDateKey = @"date";
-static NSInteger const kJFAnalyticsClientMaxCacheDays = 6;
+static NSInteger const kJFAnalyticsClientMaxCacheDays = 12;
 
 @implementation JFAnalyticsCacheManager
 
@@ -150,21 +150,26 @@ static NSInteger const kJFAnalyticsClientMaxCacheDays = 6;
 #pragma mark Cached Tag Removal
 #pragma mark ----------------------
 
-+ (BOOL)removeCachedTags:(NSArray*)tagURLs
++ (BOOL)removeCachedTags:(NSArray*)tags
 {
     BOOL retVal = NO;
-    if (tagURLs) {
+    if (tags && tags.count > 0) {
         NSString* cachePath = [self getCachePath];
         NSMutableDictionary* cache = [self getTagCache];
         
-        for (NSString* tagURL in tagURLs) {
-            if (cache && tagURL) {
-                [cache removeObjectForKey:tagURL];
-            }
-        }
-        
-        if (cachePath && [cache writeToFile:cachePath atomically:YES]) {
+        if (cache.count == tags.count) {
+            [self purgeAnalyticsCache];
             retVal = YES;
+        } else {
+            for (NSString* tagString in tags) {
+                if (cache && tagString) {
+                    [cache removeObjectForKey:tagString];
+                }
+            }
+            
+            if (cachePath && [cache writeToFile:cachePath atomically:YES]) {
+                retVal = YES;
+            }
         }
     }
     

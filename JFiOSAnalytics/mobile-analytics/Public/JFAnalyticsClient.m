@@ -47,7 +47,7 @@ static JFAnalyticsClient* _sharedClient = nil;
         _tagQueue = [[NSOperationQueue alloc] init];
         _tagQueue.name = kJFAnalyticsClientTagQueueName;
         _tagQueue.maxConcurrentOperationCount = 4;
-        _site = @"no site";
+        _environemnt = @"no_env";
         _lastUsedVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kJFAnalyticsClientLastUsedVersion];
         _includeFirstVisit = NO;
         _sendingTags = NO;
@@ -88,12 +88,12 @@ static JFAnalyticsClient* _sharedClient = nil;
 }
 
 #pragma mark ----------------------
-#pragma mark Convenience Methods
+#pragma mark Configuration
 #pragma mark ----------------------
 
-- (void)setSite:(NSString *)site
+- (void)setEnvironment:(NSString*)environemnt;
 {
-    _site = site;
+    _environemnt = environemnt;
 }
 
 - (void)setTagQueueLimit:(NSInteger)limit
@@ -141,7 +141,7 @@ static JFAnalyticsClient* _sharedClient = nil;
         [JFAnalyticsCacheManager cacheAnalyticsTag:trackingUrl];
         
         NSArray* queuedTags = [JFAnalyticsCacheManager getAllCachedAnalyticsTags];
-        NSLog(@"Queued Tags: %d", queuedTags.count);
+        NSLog(@"Queued Tags: %d", (int)queuedTags.count);
         if (queuedTags.count >= self.tagQueueLimit && !self.isSendingTags) {
             [self sendQueuedTags:queuedTags withCompletionHandler:nil];
         }
@@ -160,7 +160,7 @@ static JFAnalyticsClient* _sharedClient = nil;
         self.includeFirstVisit = NO;
     }
     
-    [myMap setValue:self.site forKey:@"site"];
+    [myMap setValue:self.environemnt forKey:@"env"];
     [myMap addEntriesFromDictionary:self.globalTags];
     
     return [myMap stringWithURLEncodedEntries];
@@ -187,38 +187,33 @@ static JFAnalyticsClient* _sharedClient = nil;
 {
     @synchronized (self) {
         self.sendingTags = YES;
-        __block NSMutableArray* completeTagURLs = [@[] mutableCopy];
-        NSMutableArray* operations = [@[] mutableCopy];
         
-        __block dispatch_group_t dispatchGroup = dispatch_group_create();
-        NSBlockOperation *completionOperation = [NSBlockOperation blockOperationWithBlock:^{
-            dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
-                [JFAnalyticsCacheManager removeCachedTags:[completeTagURLs copy]];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (completionHandler) completionHandler();
-                    self.sendingTags = NO;
-                });
-            });
-        }];
-        
+        NSMutableArray* tagsToDelete = [@[] mutableCopy];
+        NSMutableArray* tagsDictArray = [@[] mutableCopy];
         for (NSString* tagString in tags) {
             NSDictionary* tag = [tagString parseKeyValueFromQueryString];
-            JFTagOperation* tagOperation = [JFTagOperation operationWithTag:tag completionBlock:^(JFTagOperation *operation, JFTagOperationStatus status) {
-                if (status == JFTagOperationStatusFAILED) {
-                    NSLog(@"Failed to send a tagging event: %@", operation.tag);
-                } else {
-                    [completeTagURLs addObject:[operation.tag stringWithURLEncodedEntries]];
-                    NSLog(@"Successfully sent a tagging event: %@", operation.tag);
-                }
-            }];
-            [completionOperation addDependency:tagOperation];
-            [operations addObject:tagOperation];
+            if (tag) {
+                [tagsToDelete  addObject:tagString];
+                [tagsDictArray addObject:tag];
+            }
         }
         
-        [operations addObject:completionOperation];
-        
-        [self.tagQueue addOperations:operations waitUntilFinished:NO];
+        [tagsToDelete removeLastObject];
+
+        NSString* eventDictionaryName = [NSString stringWithFormat:@"%@ Events", APP_NAME];
+        NSDictionary* tagDictionary = @{eventDictionaryName: tagsDictArray};
+        JFTagOperation* tagOperation = [JFTagOperation operationWithTag:tagDictionary completionBlock:^(JFTagOperation *operation, JFTagOperationStatus status) {
+            if (status == JFTagOperationStatusFAILED) {
+                NSLog(@"Failed to send a tag queue: %@", operation.tag);
+            } else {
+                NSLog(@"Successfully sent tag queue: %@", operation.tag);
+                [JFAnalyticsCacheManager removeCachedTags:tagsToDelete];
+            }
+            self.sendingTags = NO;
+            if (completionHandler) completionHandler();
+        }];
+
+        [self.tagQueue addOperation:tagOperation];
     }
 }
 
@@ -240,11 +235,8 @@ static JFAnalyticsClient* _sharedClient = nil;
     if (self.userID == 0) {
         self.userID = [[NSDate date] timeIntervalSince1970] * 1000;
         self.sessStartTime = self.userID;
-        NSLog(@"JFAnalyticsClient: Generated a new userID of: %@", [self timeToString:self.userID]);
         [[NSUserDefaults standardUserDefaults] setDouble:self.userID forKey:kJFAnalyticsClientUserID];
         [[NSUserDefaults standardUserDefaults] synchronize];
-    } else {
-        NSLog(@"JFAnalyticsClient: Reusing a userID of: %@", [self timeToString:self.userID]);
     }
 }
 
@@ -287,8 +279,8 @@ static JFAnalyticsClient* _sharedClient = nil;
 - (BOOL)isFirstLaunchOfThisVersion
 {
     [self setLastUsedVersion];
-    if(nil == self.lastUsedVersion || ![self.lastUsedVersion isEqualToString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]]) {
-        self.lastUsedVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    if(!self.lastUsedVersion || ![self.lastUsedVersion isEqualToString:APP_VERSION]) {
+        self.lastUsedVersion = APP_VERSION;
         return YES;
     }
     return NO;
@@ -296,7 +288,7 @@ static JFAnalyticsClient* _sharedClient = nil;
 
 - (void)setLastUsedVersion
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] forKey:kJFAnalyticsClientLastUsedVersion];
+    [[NSUserDefaults standardUserDefaults] setObject:APP_VERSION forKey:kJFAnalyticsClientLastUsedVersion];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

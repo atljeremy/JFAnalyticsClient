@@ -56,7 +56,7 @@ extern NSString* const kJFAnalyticsCacheRemoveRequestFailedNotification;
  * @return Use to from cahced tags
  * @param tagURLs the array of string tag url's to be removed from cache
  */
-+ (BOOL)removeCachedTags:(NSArray*)tagURLs;
++ (BOOL)removeCachedTags:(NSArray*)tags;
 
 /**
  * @return Use to remove a cached tag

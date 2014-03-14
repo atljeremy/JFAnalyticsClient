@@ -86,7 +86,7 @@
  * #endif
  * }
  */
-- (void)setSite:(NSString *)site;
+- (void)setEnvironment:(NSString*)environemnt;
 
 /**
  * @return Use this method to set the tagQueueLimit property which is used to determine if the queue should be flushed.
