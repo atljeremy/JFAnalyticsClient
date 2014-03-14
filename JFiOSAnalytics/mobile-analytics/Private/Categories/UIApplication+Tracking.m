@@ -56,14 +56,20 @@
     UIView* view = (UIView*)sender;
     NSString* viewName = NSStringFromClass(view.class);
     NSString* viewDetailedName = [self getDetailedName:view];
+    
     if (viewDetailedName.length == 0) {
         view = (UIView*)target;
         viewName = NSStringFromClass(view.class);
         viewDetailedName = [self getDetailedName:view];
     }
+    
     const char* superviewClassName = object_getClassName(target);
     NSString* superviewName = [NSString stringWithUTF8String:superviewClassName];
-    if (viewName && viewName.length > 0 && superviewName && superviewName.length > 0) {
+    
+    if (viewName && viewName.length > 0 &&
+        superviewName && superviewName.length > 0 &&
+        viewDetailedName && viewDetailedName.length > 0) {
+        
         [[JFAnalyticsClient sharedClient] track:@{@"element-desc": viewDetailedName, @"element": viewName, @"superview": superviewName}];
     }
     
