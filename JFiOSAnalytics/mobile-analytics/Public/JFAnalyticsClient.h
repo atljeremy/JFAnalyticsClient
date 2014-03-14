@@ -95,10 +95,10 @@
 - (void)setTagQueueLimit:(NSInteger)limit;
 
 /**
- * @return Use this method to queue a tagging event. All queued tagging events will be sent to the warehouse concurrently after the queueLimit has been reached.
- * @param tags An NSDictionary of all custom tagging event KVP's to send the to warehouse.
+ * @return Use this method to queue a tagging event. All queued tagging events will be sent to keen.io after the queueLimit has been reached or when the applicaiton is backgrounded.
+ * @param tags An NSDictionary of all custom tagging event KVP's to track.
  */
-- (void)fire:(NSDictionary *)tags;
+- (void)track:(NSDictionary *)tags;
 
 /**
  * @return Use to send all currently queued tags immediately. Recommended usage would be to utilize this inside applicationDidEnterBackground: and begin a background task to upload all queud tags. This will help ensure queued tags are sent when the app enters the background, even if the tag queue limit hasn't been reached.
@@ -116,28 +116,6 @@
  * @param globalTag The NSDictionary containing the global tag to remove
  */
 - (void)removeGlobalTag:(NSDictionary *)globalTag;
-
-/**
- * @return Use this method to mark time as paused for the current session.
- *
- * For Example:
- *
- * - (void)applicationDidEnterBackground:(UIApplication *)application {
- *   [[JFAnalyticsClient sharedInstance] markTimePaused];
- * }
- */
-- (void)markTimePaused;
-
-/**
- * @return Use this method to create or re-initialize an active session.
- *
- * For Example:
- *
- * - (void)applicationDidBecomeActive:(UIApplication *)application {
- *    [[JFAnalyticsClient sharedInstance] processSession];
- * }
- */
-- (void)processSession;
 
 /**
  * @return A helper method to determine if the application is being launched for the first time of a specific version.

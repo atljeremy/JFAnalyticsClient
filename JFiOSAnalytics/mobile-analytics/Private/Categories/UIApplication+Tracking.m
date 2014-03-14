@@ -64,7 +64,7 @@
     const char* superviewClassName = object_getClassName(target);
     NSString* superviewName = [NSString stringWithUTF8String:superviewClassName];
     if (viewName && viewName.length > 0 && superviewName && superviewName.length > 0) {
-        [[JFAnalyticsClient sharedClient] fire:@{@"element-desc": viewDetailedName, @"element": viewName, @"superview": superviewName}];
+        [[JFAnalyticsClient sharedClient] track:@{@"element-desc": viewDetailedName, @"element": viewName, @"superview": superviewName}];
     }
     
     return [self JF_sendAction:action to:target from:sender forEvent:event];

@@ -132,7 +132,7 @@ static JFAnalyticsClient* _sharedClient = nil;
 #pragma mark Tag Creation and Caching
 #pragma mark ----------------------
 
-- (void)fire:(NSDictionary *)tags
+- (void)track:(NSDictionary *)tags
 {
     if (!self.userID || self.userID == 0) {
         [self processSession];

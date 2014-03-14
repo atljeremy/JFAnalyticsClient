@@ -57,13 +57,13 @@ How to Use This Framework:
 #### Step 4: Optionally set the desired tag queue limit. Default is 20.
 
 ```objective-c
-[[RPAnalyticsManager sharedInstance] setTagQueueLimit:5];
+[[JFAnalyticsClient sharedInstance] setTagQueueLimit:5];
 ```
 
 #### Step 5: Optionally add any global tags to be fired with all tags.
 
 ```objective-c
-[[RPAnalyticsManager sharedInstance] addGlobalTag:@{@"globalKey": @"globalValue"}];
+[[JFAnalyticsClient sharedInstance] addGlobalTag:@{@"globalKey": @"globalValue"}];
 ```
 
 #### Step 6: Fire tags for analytical events.
@@ -72,9 +72,9 @@ How to Use This Framework:
 /**
  * Fire custom tags by simply passing in an NSDictionary of KVP's
  */
-[[RPAnalyticsManager sharedInstance] fire:@{@"tap": @"Dismiss Button"}];
-[[RPAnalyticsManager sharedInstance] fire:@{@"screen": @"Map", @"action": @"search"}];
-[[RPAnalyticsManager sharedInstance] fire:@{@"screen": @"Detail", @"type": @"pageview"}];
+[[JFAnalyticsClient sharedInstance] track:@{@"tap": @"Dismiss Button"}];
+[[JFAnalyticsClient sharedInstance] track:@{@"screen": @"Map", @"action": @"search"}];
+[[JFAnalyticsClient sharedInstance] track:@{@"screen": @"Detail", @"type": @"pageview"}];
 ```
 
 Queued tags will be sent after the `tagQueueLimit` has been reached and there are no tags currently being sent. Also when the application is backgrounded.

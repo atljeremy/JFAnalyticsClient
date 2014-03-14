@@ -56,7 +56,7 @@
 
 - (void)JF_viewDidAppear:(BOOL)animated {
     [self JF_viewDidAppear:animated];
-    [[JFAnalyticsClient sharedClient] fire:@{@"pageView": NSStringFromClass(self.class)}];
+    [[JFAnalyticsClient sharedClient] track:@{@"pageView": NSStringFromClass(self.class)}];
 }
 
 @end
