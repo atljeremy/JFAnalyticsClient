@@ -96,7 +96,7 @@ Access the "Workbench" tab near the top of the page. Here is where you can manua
 
 Unfortunatly, this can't be done from the website, not sure why. However, using a simple `curl` command you can do this through the API. Here's an example command that will create a saved query in your account within the "Saved Queries" tab.
 
-Please note: You will need to replace the following in each of the examples below with your specific information:
+**Please note:** You will need to replace the following in each of the examples below with your specific information:
 
 - **YourAppNameHere**
 - **Your-Project-ID-Here**
