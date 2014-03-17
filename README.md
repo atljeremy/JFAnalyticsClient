@@ -15,12 +15,13 @@ How to Install this Framework:
 How to Use This Framework:
 --------------------------
 
-#### Step 1: Initialized JFAnalyticsClient using the designated initializer. This MUST happen before trying to access sharedClient.
+#### Step 1: Initialize JFAnalyticsClient using the designated initializer. This MUST happen before trying to access sharedClient. Also, optionally set the desired tagQueueLimit.
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [JFAnalyticsClient clientWithProjectID:@"YOUR-KEEN.IO-PROJECT-KEY" writeKey:@"YOUR-KEEN.IO-WRITE-KEY" readKey:@"YOUR-KEEN.IO-READ-KEY"];
-    
+    [[JFAnalyticsClient sharedInstance] setTagQueueLimit:5]; // Defaults to 20
+	
     // Additional application setup here
 
     return YES;
@@ -41,6 +42,7 @@ How to Use This Framework:
 ```
 
 #### Step 3: Send all queued tags when a user leaves the application to ensure tags are not lost (if user never returns).
+
 ```objective-c
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
@@ -54,19 +56,13 @@ How to Use This Framework:
 }
 ```
 
-#### Step 4: Optionally set the desired tag queue limit. Default is 20.
-
-```objective-c
-[[JFAnalyticsClient sharedInstance] setTagQueueLimit:5];
-```
-
-#### Step 5: Optionally add any global tags to be fired with all tags.
+#### Step 4: Optionally add any global tags to be fired with all tags.
 
 ```objective-c
 [[JFAnalyticsClient sharedInstance] addGlobalTag:@{@"globalKey": @"globalValue"}];
 ```
 
-#### Step 6: Fire tags for analytical events.
+#### Step 5: Track analytical events.
 
 ```objective-c
 /**
@@ -74,7 +70,46 @@ How to Use This Framework:
  */
 [[JFAnalyticsClient sharedInstance] track:@{@"tap": @"Dismiss Button"}];
 [[JFAnalyticsClient sharedInstance] track:@{@"screen": @"Map", @"action": @"search"}];
-[[JFAnalyticsClient sharedInstance] track:@{@"screen": @"Detail", @"type": @"pageview"}];
+[[JFAnalyticsClient sharedInstance] track:@{@"screen": @"Detail", @"view": @"bottom-toolbar", @"action": @"save"}];
 ```
 
 Queued tags will be sent after the `tagQueueLimit` has been reached and there are no tags currently being sent. Also when the application is backgrounded.
+
+Keen.io Reporting:
+------------------
+
+As mentioned above, all KVP's are sent to your keen.io account. Keen.io is not your typical analytics service. It's essentially a glorified Key/Value store that offers a feature rich API. Let's take a look at a couple ways you can check your analytical data and create "Saved Queries" for quick and easy future execution.
+
+#### Step 1: Verify that you are received tags in your keen.io account.
+
+After you log in, click on the "Project Overiview" tab near the top of the page then find the "Event Explorer" section. Click on the "Select an Event Collection" dropdown menu and choose your apps collection. The name should be "YourAppName Events". Now select the "Last 10 Events" tab and you should see something like this...
+
+![Event Collection](https://www.evernote.com/shard/s4/sh/61c372f9-c512-4f96-8896-f76b74c645e4/e81fe54f9e60a820a473183097ff973a/deep/0/Keen-IO---The-API-for-Custom-Analytics.png)
+
+You can click on any of the events listed and it will show you the structure of the KVP's as they were received by keen.io.
+
+#### Step 2: Query events for specific data.
+
+Access the "Workbench" tab near the top of the page. Here is where you can manually build up queries to parse through your data. THis should all be pretty self explanitory. If not, just click on the "?" icon next to any field that you are not sure of. This will open the documentaion.
+
+#### Step 3: Saving queries for quick and easy future execution:
+
+Unfortunatly, this can't be done from the website, not sure why. However, using a simple `curl` command you can do this through the API. Here's an example command that will create a saved query in your account within the "Saved Queries" tab.
+
+Basic request to store a new Saved Query for the count of all events that fired for an iOS device running iOS 7.1.
+```
+curl -X PUT -H "Content-Type: application/json" -d '{"event_collection":"YourAppNameHere Events", "analysis_type":"count", "timeframe":"today", "interval":"hourly", "filters":[{"property_name":"os", "operator":"eq", "property_value":"7.1"}]}' https://api.keen.io/3.0/projects/<Your-Project-ID-Here>/saved_queries/<Your-Desired-Saved-Query-Name-Here>?api_key=<Your-Master-API-Key-Here>
+```
+
+Basic request to store a new Saved Query for the count of all events that fired for a specific app version.
+```
+curl -X PUT -H "Content-Type: application/json" -d '{"event_collection":"YourAppNameHere Events", "analysis_type":"count", "timeframe":"today", "interval":"hourly", "filters":[{"property_name":"app_version", "operator":"eq", "property_value":"<Your-Desired-App-Version>"}]}' https://api.keen.io/3.0/projects/<Your-Project-ID-Here>/saved_queries/<Your-Desired-Saved-Query-Name-Here>?api_key=<Your-Master-API-Key-Here>
+```
+
+#### Step 4: 
+
+Execute "Saved Queries" from the website.
+
+![Saved Queries](https://www.evernote.com/shard/s4/sh/946672be-a7ea-4f7a-a44a-095336ad951c/3ef72a734aa19d1fec0736f5be6ae18b/deep/0/Keen-IO---The-API-for-Custom-Analytics.png)
+
+Open the Saved Queries tab near the top of the page. You should now see all of your Saved Queires. To execute a Saved Query, just click on the name of the Saved Query.
