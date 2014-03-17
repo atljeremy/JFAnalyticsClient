@@ -98,10 +98,10 @@ Unfortunatly, this can't be done from the website, not sure why. However, using 
 
 Please note: You will need to replace the following in each of the examples below with your specific information:
 
-- YourAppNameHere
-- Your-Project-ID-Here
-- Your-Desired-Saved-Query-Name-Here
-- Your-Master-API-Key-Here
+- **YourAppNameHere**
+- **Your-Project-ID-Here**
+- **Your-Desired-Saved-Query-Name-Here**
+- **Your-Master-API-Key-Here**
 
 Basic request to store a new Saved Query for the count of all firstVisit tags. This will indicate new users.
 ```
