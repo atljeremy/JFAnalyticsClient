@@ -99,23 +99,23 @@ Unfortunatly, this can't be done from the website, not sure why. However, using 
 Please note: You will need to replace the following in each of the examples below with your specific information:
 
 - YourAppNameHere
-- <Your-Project-ID-Here>
-- <Your-Desired-Saved-Query-Name-Here>
-- <Your-Master-API-Key-Here>
+- Your-Project-ID-Here
+- Your-Desired-Saved-Query-Name-Here
+- Your-Master-API-Key-Here
 
 Basic request to store a new Saved Query for the count of all firstVisit tags. This will indicate new users.
 ```
-curl -X PUT -H "Content-Type: application/json" -d '{"event_collection":"YourAppNameHere Events", "analysis_type":"count", "timeframe":"today", "interval":"hourly", "filters":[{"property_name":"first_visit", "operator":"exists", "property_value":true}]}' https://api.keen.io/3.0/projects/<Your-Project-ID-Here>/saved_queries/<Your-Desired-Saved-Query-Name-Here>?api_key=<Your-Master-API-Key-Here>
+curl -X PUT -H "Content-Type: application/json" -d '{"event_collection":"YourAppNameHere Events", "analysis_type":"count", "timeframe":"today", "interval":"hourly", "filters":[{"property_name":"first_visit", "operator":"exists", "property_value":true}]}' https://api.keen.io/3.0/projects/Your-Project-ID-Here/saved_queries/Your-Desired-Saved-Query-Name-Here?api_key=Your-Master-API-Key-Here
 ```
 
 Basic request to store a new Saved Query for the count of all events that fired for an iOS device running iOS 7.1.
 ```
-curl -X PUT -H "Content-Type: application/json" -d '{"event_collection":"YourAppNameHere Events", "analysis_type":"count", "timeframe":"today", "interval":"hourly", "filters":[{"property_name":"os", "operator":"eq", "property_value":"7.1"}]}' https://api.keen.io/3.0/projects/<Your-Project-ID-Here>/saved_queries/<Your-Desired-Saved-Query-Name-Here>?api_key=<Your-Master-API-Key-Here>
+curl -X PUT -H "Content-Type: application/json" -d '{"event_collection":"YourAppNameHere Events", "analysis_type":"count", "timeframe":"today", "interval":"hourly", "filters":[{"property_name":"os", "operator":"eq", "property_value":"7.1"}]}' https://api.keen.io/3.0/projects/Your-Project-ID-Here/saved_queries/Your-Desired-Saved-Query-Name-Here?api_key=Your-Master-API-Key-Here
 ```
 
 Basic request to store a new Saved Query for the count of all events that fired for a specific app version.
 ```
-curl -X PUT -H "Content-Type: application/json" -d '{"event_collection":"YourAppNameHere Events", "analysis_type":"count", "timeframe":"today", "interval":"hourly", "filters":[{"property_name":"app_version", "operator":"eq", "property_value":"<Your-Desired-App-Version>"}]}' https://api.keen.io/3.0/projects/<Your-Project-ID-Here>/saved_queries/<Your-Desired-Saved-Query-Name-Here>?api_key=<Your-Master-API-Key-Here>
+curl -X PUT -H "Content-Type: application/json" -d '{"event_collection":"YourAppNameHere Events", "analysis_type":"count", "timeframe":"today", "interval":"hourly", "filters":[{"property_name":"app_version", "operator":"eq", "property_value":"<Your-Desired-App-Version>"}]}' https://api.keen.io/3.0/projects/Your-Project-ID-Here/saved_queries/Your-Desired-Saved-Query-Name-Here?api_key=Your-Master-API-Key-Here
 ```
 
 #### Step 4: 
