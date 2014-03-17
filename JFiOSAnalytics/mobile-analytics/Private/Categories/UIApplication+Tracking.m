@@ -86,7 +86,7 @@
             }
         }
     } else if ([view isKindOfClass:UIBarItem.class]) {
-        name = ((UIBarButtonItem*)view).title;
+        name = ((UIBarItem*)view).title;
     }
     
     return [name stringByReplacingOccurrencesOfString:@" " withString:@"-"];
