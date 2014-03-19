@@ -56,7 +56,12 @@
 
 - (void)JF_viewDidAppear:(BOOL)animated {
     [self JF_viewDidAppear:animated];
-    [[JFAnalyticsClient sharedClient] track:@{@"pageView": NSStringFromClass(self.class)}];
+    
+    NSString* class = NSStringFromClass(self.class);
+    if ([class rangeOfString:@"UI"].location == NSNotFound) {
+        [[JFAnalyticsClient sharedClient] track:@{@"pageView": class}];
+    }
+    
 }
 
 @end
