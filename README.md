@@ -34,9 +34,9 @@ How to Use This Framework:
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
 #ifdef DEBUG
-    [[JFAnalyticsClient sharedInstance] setEnvironment:@"dev"];
+    [[JFAnalyticsClient sharedClient] setEnvironment:@"dev"];
 #else
-    [[JFAnalyticsCLient sharedInstance] setEnvironment:@"prod"];
+    [[JFAnalyticsCLient sharedClient] setEnvironment:@"prod"];
 #endif
 }
 ```
@@ -59,7 +59,7 @@ How to Use This Framework:
 #### Step 4: Optionally add any global tags to be fired with all tags.
 
 ```objective-c
-[[JFAnalyticsClient sharedInstance] addGlobalTag:@{@"globalKey": @"globalValue"}];
+[[JFAnalyticsClient sharedClient] addGlobalTag:@{@"globalKey": @"globalValue"}];
 ```
 
 #### Step 5: Track analytical events.
@@ -68,9 +68,9 @@ How to Use This Framework:
 /**
  * Fire custom tags by simply passing in an NSDictionary of KVP's
  */
-[[JFAnalyticsClient sharedInstance] track:@{@"tap": @"Dismiss Button"}];
-[[JFAnalyticsClient sharedInstance] track:@{@"screen": @"Map", @"action": @"search"}];
-[[JFAnalyticsClient sharedInstance] track:@{@"screen": @"Detail", @"view": @"bottom-toolbar", @"action": @"save"}];
+[[JFAnalyticsClient sharedClient] track:@{@"tap": @"Dismiss Button"}];
+[[JFAnalyticsClient sharedClient] track:@{@"screen": @"Map", @"action": @"search"}];
+[[JFAnalyticsClient sharedClient] track:@{@"screen": @"Detail", @"view": @"bottom-toolbar", @"action": @"save"}];
 ```
 
 Queued tags will be sent after the `tagQueueLimit` has been reached and there are no tags currently being sent. Also when the application is backgrounded.
