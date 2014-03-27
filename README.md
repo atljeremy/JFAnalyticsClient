@@ -60,13 +60,15 @@ Send all queued tags when a user leaves the application to ensure tags are not l
 }
 ```
 
-#### Step 4: Optionally add any global tags to be fired with all tags.
+#### Step 4:
+Optionally add any global tags to be fired with all tags.
 
 ```objective-c
 [[JFAnalyticsClient sharedClient] addGlobalTag:@{@"globalKey": @"globalValue"}];
 ```
 
-#### Step 5: Track analytical events.
+#### Step 5:
+Track analytical events.
 
 ```objective-c
 /**
