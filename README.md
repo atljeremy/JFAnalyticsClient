@@ -15,7 +15,9 @@ How to Install this Framework:
 How to Use This Framework:
 --------------------------
 
-#### Step 1: Initialize JFAnalyticsClient using the designated initializer. This MUST happen before trying to access sharedClient. Also, optionally set the desired tagQueueLimit.
+#### Step 1:
+Initialize JFAnalyticsClient using the designated initializer. This MUST happen before trying to access sharedClient. Also, optionally set the desired tagQueueLimit.
+
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -28,7 +30,8 @@ How to Use This Framework:
 }
 ```
 
-#### Step 2: Set the site variable by calling setSite: and passing in the appropriate string constant for the current environment.
+#### Step 2:
+Set the site variable by calling setSite: and passing in the appropriate string constant for the current environment.
 
 ```objective-c
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -41,7 +44,8 @@ How to Use This Framework:
 }
 ```
 
-#### Step 3: Send all queued tags when a user leaves the application to ensure tags are not lost (if user never returns).
+#### Step 3:
+Send all queued tags when a user leaves the application to ensure tags are not lost (if user never returns).
 
 ```objective-c
 - (void)applicationDidEnterBackground:(UIApplication *)application
