@@ -95,6 +95,17 @@
 - (void)setTagQueueLimit:(NSInteger)limit;
 
 /**
+ * @return Use this method to start or stop tracking UIViewController viewDidAppear events.
+ * @param trackEvents The BOOL representing whether to turn on (YES) or turn off (NO) view controller viewDidAppear event track.
+ */
+- (void)setTrackingViewControllerViewDidAppearEvents:(BOOL)trackEvents;
+
+/**
+ * @return Use this method to check the state of UIViewController viewDidAppear event tracking. If this returns YES, tracking is enabled. If this returns NO, tracking is disabled.
+ */
+- (BOOL)isTrackingViewControllerViewDidAppearEvents;
+
+/**
  * @return Use this method to queue a tagging event. All queued tagging events will be sent to keen.io after the queueLimit has been reached or when the applicaiton is backgrounded.
  * @param tags An NSDictionary of all custom tagging event KVP's to track.
  */

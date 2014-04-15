@@ -26,6 +26,7 @@
 #import "JFAnalyticsClient.h"
 #import <sys/utsname.h>
 #import "JFTagOperation.h"
+#import "UIViewController+Tracking.h"
 
 #pragma mark ----------------------
 #pragma mark JFAnalyticsClient_Extension
@@ -33,6 +34,10 @@
 #import "JFAnalyticsClient_Extension.h"
 
 static NSString* const kJFAnalyticsClientTagQueueName = @"JFAnalyticsClientTagQueue";
+
+@interface JFAnalyticsClient()
+@property (nonatomic, assign) BOOL trackingViewControllerViewDidAppearEvents;
+@end
 
 @implementation JFAnalyticsClient
 
@@ -53,6 +58,7 @@ static JFAnalyticsClient* _sharedClient = nil;
         _sendingTags = NO;
         _tagQueueLimit = kJFAnalyticsClientDefaultTagQueueLimit;
         _globalTags = [@{} mutableCopy];
+        _trackingViewControllerViewDidAppearEvents = YES;
     }
     return self;
 }
@@ -103,6 +109,16 @@ static JFAnalyticsClient* _sharedClient = nil;
 - (void)setTagQueueLimit:(NSInteger)limit
 {
     _tagQueueLimit = limit;
+}
+
+- (void)setTrackingViewControllerViewDidAppearEvents:(BOOL)trackingEvents
+{
+    _trackingViewControllerViewDidAppearEvents = trackingEvents;
+}
+
+- (BOOL)isTrackingViewControllerViewDidAppearEvents
+{
+    return _trackingViewControllerViewDidAppearEvents;
 }
 
 #pragma mark ----------------------
