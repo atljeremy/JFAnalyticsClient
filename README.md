@@ -1,7 +1,7 @@
 JF Analytics Client Framework
 =============================
 
-This is an open source project for handling analytics within an iOS applications. The backend data store used to store the analytics events (A.K.A. tags) is http://www.keen.io. You’ll need to register for a free account, which provides you with up to 50,000 events per month, in order to utilize this framework. After registering you’ll need your keen.io project ID, write key, and read key. Follow the steps below to setup and use JFAnalyticsClient once you have this information.
+This is an open source project for handling analytics within a iOS applications. The backend data store used to store the analytics events (A.K.A. tags) is http://www.keen.io. You’ll need to register for a free account, which provides you with up to 50,000 events per month, in order to utilize this framework. After registering you’ll need your keen.io project ID, write key, and read key. Follow the steps below to setup and use JFAnalyticsClient once you have this information.
 
 Online Documentation will soon be available.
 
