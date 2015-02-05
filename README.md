@@ -31,7 +31,7 @@ Initialize JFAnalyticsClient using the designated initializer. This MUST happen 
 ```
 
 #### Step 2:
-Set the site variable by calling setSite: and passing in the appropriate string constant for the current environment.
+Let JFAnalyticsClient know what environment you're running in to keep production analytics data seperate from other environements. You can do this by calling setEnvironment: and passing in the appropriate string constant for the current environment.
 
 ```objective-c
 - (void)applicationDidBecomeActive:(UIApplication *)application
