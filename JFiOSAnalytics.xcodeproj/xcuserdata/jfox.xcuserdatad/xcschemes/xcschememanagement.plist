@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>JFAnalyticsClient.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>JFiOSAnalytics.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,7 +17,7 @@
 		<key>JFiOSAnalyticsTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -28,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>1A94592317B53A4400E39C32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1AE636DE1C85EDFA00A1D8CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1AE636E71C85EDFA00A1D8CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

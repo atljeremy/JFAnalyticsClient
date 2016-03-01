@@ -124,6 +124,32 @@
 		1A9458F917B537A500E39C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9458F817B537A500E39C32 /* Foundation.framework */; };
 		1A94590A17B537A500E39C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A94590917B537A500E39C32 /* UIKit.framework */; };
 		1A94590B17B537A500E39C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9458F817B537A500E39C32 /* Foundation.framework */; };
+		1AE636E21C85EDFA00A1D8CF /* JFiOSAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AE636E11C85EDFA00A1D8CF /* JFiOSAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AE636E91C85EDFA00A1D8CF /* JFAnalyticsClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE636DF1C85EDFA00A1D8CF /* JFAnalyticsClient.framework */; };
+		1AE636EE1C85EDFA00A1D8CF /* JFAnalyticsClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE636ED1C85EDFA00A1D8CF /* JFAnalyticsClientTests.m */; };
+		1AE636F81C85EE1700A1D8CF /* JFAnalyticsCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40952018CE0CD60068C620 /* JFAnalyticsCacheManager.m */; };
+		1AE636F91C85EE1700A1D8CF /* NSDictionary+util.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40952318CE0CD60068C620 /* NSDictionary+util.m */; };
+		1AE636FA1C85EE1700A1D8CF /* NSString+utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40952518CE0CD60068C620 /* NSString+utils.m */; };
+		1AE636FB1C85EE1700A1D8CF /* UIApplication+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40952718CE0CD60068C620 /* UIApplication+Tracking.m */; };
+		1AE636FC1C85EE1700A1D8CF /* UIDevice+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40952918CE0CD60068C620 /* UIDevice+Extras.m */; };
+		1AE636FD1C85EE1700A1D8CF /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40952B18CE0CD60068C620 /* UIDevice+IdentifierAddition.m */; };
+		1AE636FE1C85EE1700A1D8CF /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40952D18CE0CD60068C620 /* UIViewController+Tracking.m */; };
+		1AE636FF1C85EE1700A1D8CF /* JFDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40953018CE0CD60068C620 /* JFDeviceManager.m */; };
+		1AE637001C85EE1700A1D8CF /* JFTagOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40953418CE0CD60068C620 /* JFTagOperation.m */; };
+		1AE637011C85EE1700A1D8CF /* JFAnalyticsClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40953918CE0CD60068C620 /* JFAnalyticsClient.m */; };
+		1AE637031C85EE4000A1D8CF /* JFAnalyticsClient_Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40953118CE0CD60068C620 /* JFAnalyticsClient_Extension.h */; };
+		1AE637041C85EE4000A1D8CF /* JFAnalyticsCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40951F18CE0CD60068C620 /* JFAnalyticsCacheManager.h */; };
+		1AE637051C85EE4000A1D8CF /* NSDictionary+util.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40952218CE0CD60068C620 /* NSDictionary+util.h */; };
+		1AE637061C85EE4000A1D8CF /* NSString+utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40952418CE0CD60068C620 /* NSString+utils.h */; };
+		1AE637071C85EE4000A1D8CF /* UIApplication+Tracking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40952618CE0CD60068C620 /* UIApplication+Tracking.h */; };
+		1AE637081C85EE4000A1D8CF /* UIDevice+Extras.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40952818CE0CD60068C620 /* UIDevice+Extras.h */; };
+		1AE637091C85EE4000A1D8CF /* UIDevice+IdentifierAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40952A18CE0CD60068C620 /* UIDevice+IdentifierAddition.h */; };
+		1AE6370A1C85EE4000A1D8CF /* UIViewController+Tracking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40952C18CE0CD60068C620 /* UIViewController+Tracking.h */; };
+		1AE6370B1C85EE4000A1D8CF /* JFDeviceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40952F18CE0CD60068C620 /* JFDeviceManager.h */; };
+		1AE6370C1C85EE4000A1D8CF /* JFTagOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40953318CE0CD60068C620 /* JFTagOperation.h */; };
+		1AE6370D1C85EE4000A1D8CF /* jf_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40953618CE0CD60068C620 /* jf_utils.h */; };
+		1AE6370F1C85EF2D00A1D8CF /* JFAnalyticsClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40953818CE0CD60068C620 /* JFAnalyticsClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AE637111C85EFEF00A1D8CF /* JFiOSAnalytics-Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AE637101C85EFEF00A1D8CF /* JFiOSAnalytics-Prefix.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +159,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1A9458F417B537A500E39C32;
 			remoteInfo = RPiOSMobileAnalytics;
+		};
+		1AE636EA1C85EDFA00A1D8CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A9458ED17B537A500E39C32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AE636DE1C85EDFA00A1D8CF;
+			remoteInfo = JFAnalyticsClient;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -364,6 +397,13 @@
 		1A94590617B537A500E39C32 /* JFiOSAnalyticsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JFiOSAnalyticsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A94590717B537A500E39C32 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1A94590917B537A500E39C32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		1AE636DF1C85EDFA00A1D8CF /* JFAnalyticsClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JFAnalyticsClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AE636E11C85EDFA00A1D8CF /* JFiOSAnalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JFiOSAnalytics.h; sourceTree = "<group>"; };
+		1AE636E31C85EDFA00A1D8CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AE636E81C85EDFA00A1D8CF /* JFAnalyticsClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JFAnalyticsClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AE636ED1C85EDFA00A1D8CF /* JFAnalyticsClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JFAnalyticsClientTests.m; sourceTree = "<group>"; };
+		1AE636EF1C85EDFA00A1D8CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AE637101C85EFEF00A1D8CF /* JFiOSAnalytics-Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JFiOSAnalytics-Prefix.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +423,21 @@
 				1A2D122418CE133700D88191 /* SenTestingKit.framework in Frameworks */,
 				1A94590A17B537A500E39C32 /* UIKit.framework in Frameworks */,
 				1A94590B17B537A500E39C32 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE636DB1C85EDFA00A1D8CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE636E51C85EDFA00A1D8CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE636E91C85EDFA00A1D8CF /* JFAnalyticsClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +781,8 @@
 			children = (
 				1A40951918CE0CD60068C620 /* JFiOSAnalytics */,
 				1A40953A18CE0CD60068C620 /* JFiOSAnalyticsTests */,
+				1AE636E01C85EDFA00A1D8CF /* JFAnalyticsClient */,
+				1AE636EC1C85EDFA00A1D8CF /* JFAnalyticsClientTests */,
 				1A9458F717B537A500E39C32 /* Frameworks */,
 				1A9458F617B537A500E39C32 /* Products */,
 			);
@@ -736,6 +793,8 @@
 			children = (
 				1A9458F517B537A500E39C32 /* libJFiOSAnalytics.a */,
 				1A94590617B537A500E39C32 /* JFiOSAnalyticsTests.octest */,
+				1AE636DF1C85EDFA00A1D8CF /* JFAnalyticsClient.framework */,
+				1AE636E81C85EDFA00A1D8CF /* JFAnalyticsClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -748,6 +807,25 @@
 				1A94590917B537A500E39C32 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1AE636E01C85EDFA00A1D8CF /* JFAnalyticsClient */ = {
+			isa = PBXGroup;
+			children = (
+				1AE636E11C85EDFA00A1D8CF /* JFiOSAnalytics.h */,
+				1AE636E31C85EDFA00A1D8CF /* Info.plist */,
+				1AE637101C85EFEF00A1D8CF /* JFiOSAnalytics-Prefix.h */,
+			);
+			path = JFAnalyticsClient;
+			sourceTree = "<group>";
+		};
+		1AE636EC1C85EDFA00A1D8CF /* JFAnalyticsClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				1AE636ED1C85EDFA00A1D8CF /* JFAnalyticsClientTests.m */,
+				1AE636EF1C85EDFA00A1D8CF /* Info.plist */,
+			);
+			path = JFAnalyticsClientTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -771,6 +849,27 @@
 				1A40965118CE0CD70068C620 /* UIViewController+Tracking.h in Headers */,
 				1A40965618CE0CD70068C620 /* JFTagOperation.h in Headers */,
 				1A40965818CE0CD70068C620 /* jf_utils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE636DC1C85EDFA00A1D8CF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE636E21C85EDFA00A1D8CF /* JFiOSAnalytics.h in Headers */,
+				1AE6370F1C85EF2D00A1D8CF /* JFAnalyticsClient.h in Headers */,
+				1AE637031C85EE4000A1D8CF /* JFAnalyticsClient_Extension.h in Headers */,
+				1AE637041C85EE4000A1D8CF /* JFAnalyticsCacheManager.h in Headers */,
+				1AE637051C85EE4000A1D8CF /* NSDictionary+util.h in Headers */,
+				1AE637061C85EE4000A1D8CF /* NSString+utils.h in Headers */,
+				1AE637071C85EE4000A1D8CF /* UIApplication+Tracking.h in Headers */,
+				1AE637081C85EE4000A1D8CF /* UIDevice+Extras.h in Headers */,
+				1AE637091C85EE4000A1D8CF /* UIDevice+IdentifierAddition.h in Headers */,
+				1AE637111C85EFEF00A1D8CF /* JFiOSAnalytics-Prefix.h in Headers */,
+				1AE6370A1C85EE4000A1D8CF /* UIViewController+Tracking.h in Headers */,
+				1AE6370B1C85EE4000A1D8CF /* JFDeviceManager.h in Headers */,
+				1AE6370C1C85EE4000A1D8CF /* JFTagOperation.h in Headers */,
+				1AE6370D1C85EE4000A1D8CF /* jf_utils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,6 +913,42 @@
 			productReference = 1A94590617B537A500E39C32 /* JFiOSAnalyticsTests.octest */;
 			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
+		1AE636DE1C85EDFA00A1D8CF /* JFAnalyticsClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AE636F61C85EDFA00A1D8CF /* Build configuration list for PBXNativeTarget "JFAnalyticsClient" */;
+			buildPhases = (
+				1AE636DA1C85EDFA00A1D8CF /* Sources */,
+				1AE636DB1C85EDFA00A1D8CF /* Frameworks */,
+				1AE636DC1C85EDFA00A1D8CF /* Headers */,
+				1AE636DD1C85EDFA00A1D8CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JFAnalyticsClient;
+			productName = JFAnalyticsClient;
+			productReference = 1AE636DF1C85EDFA00A1D8CF /* JFAnalyticsClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1AE636E71C85EDFA00A1D8CF /* JFAnalyticsClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AE636F71C85EDFA00A1D8CF /* Build configuration list for PBXNativeTarget "JFAnalyticsClientTests" */;
+			buildPhases = (
+				1AE636E41C85EDFA00A1D8CF /* Sources */,
+				1AE636E51C85EDFA00A1D8CF /* Frameworks */,
+				1AE636E61C85EDFA00A1D8CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AE636EB1C85EDFA00A1D8CF /* PBXTargetDependency */,
+			);
+			name = JFAnalyticsClientTests;
+			productName = JFAnalyticsClientTests;
+			productReference = 1AE636E81C85EDFA00A1D8CF /* JFAnalyticsClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -822,6 +957,14 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = rentpath;
+				TargetAttributes = {
+					1AE636DE1C85EDFA00A1D8CF = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					1AE636E71C85EDFA00A1D8CF = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
 			};
 			buildConfigurationList = 1A9458F017B537A500E39C32 /* Build configuration list for PBXProject "JFiOSAnalytics" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -837,12 +980,28 @@
 			targets = (
 				1A9458F417B537A500E39C32 /* JFiOSAnalytics */,
 				1A94590517B537A500E39C32 /* JFiOSAnalyticsTests */,
+				1AE636DE1C85EDFA00A1D8CF /* JFAnalyticsClient */,
+				1AE636E71C85EDFA00A1D8CF /* JFAnalyticsClientTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1A94590317B537A500E39C32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE636DD1C85EDFA00A1D8CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE636E61C85EDFA00A1D8CF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -993,6 +1152,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1AE636DA1C85EDFA00A1D8CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE636F81C85EE1700A1D8CF /* JFAnalyticsCacheManager.m in Sources */,
+				1AE636F91C85EE1700A1D8CF /* NSDictionary+util.m in Sources */,
+				1AE636FA1C85EE1700A1D8CF /* NSString+utils.m in Sources */,
+				1AE636FB1C85EE1700A1D8CF /* UIApplication+Tracking.m in Sources */,
+				1AE636FC1C85EE1700A1D8CF /* UIDevice+Extras.m in Sources */,
+				1AE636FD1C85EE1700A1D8CF /* UIDevice+IdentifierAddition.m in Sources */,
+				1AE636FE1C85EE1700A1D8CF /* UIViewController+Tracking.m in Sources */,
+				1AE636FF1C85EE1700A1D8CF /* JFDeviceManager.m in Sources */,
+				1AE637001C85EE1700A1D8CF /* JFTagOperation.m in Sources */,
+				1AE637011C85EE1700A1D8CF /* JFAnalyticsClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE636E41C85EDFA00A1D8CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE636EE1C85EDFA00A1D8CF /* JFAnalyticsClientTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1000,6 +1184,11 @@
 			isa = PBXTargetDependency;
 			target = 1A9458F417B537A500E39C32 /* JFiOSAnalytics */;
 			targetProxy = 1A94590C17B537A500E39C32 /* PBXContainerItemProxy */;
+		};
+		1AE636EB1C85EDFA00A1D8CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AE636DE1C85EDFA00A1D8CF /* JFAnalyticsClient */;
+			targetProxy = 1AE636EA1C85EDFA00A1D8CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1220,6 +1409,208 @@
 			};
 			name = "Ad Hoc";
 		};
+		1AE636F01C85EDFA00A1D8CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "JFAnalyticsClient/JFiOSAnalytics-Prefix.h";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = JFAnalyticsClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeremyfox.JFAnalyticsClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1AE636F11C85EDFA00A1D8CF /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "JFAnalyticsClient/JFiOSAnalytics-Prefix.h";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = JFAnalyticsClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeremyfox.JFAnalyticsClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = "Ad Hoc";
+		};
+		1AE636F21C85EDFA00A1D8CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "JFAnalyticsClient/JFiOSAnalytics-Prefix.h";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = JFAnalyticsClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeremyfox.JFAnalyticsClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1AE636F31C85EDFA00A1D8CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = JFAnalyticsClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeremyfox.JFAnalyticsClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1AE636F41C85EDFA00A1D8CF /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = JFAnalyticsClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeremyfox.JFAnalyticsClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Ad Hoc";
+		};
+		1AE636F51C85EDFA00A1D8CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = JFAnalyticsClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeremyfox.JFAnalyticsClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1252,6 +1643,24 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1AE636F61C85EDFA00A1D8CF /* Build configuration list for PBXNativeTarget "JFAnalyticsClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AE636F01C85EDFA00A1D8CF /* Debug */,
+				1AE636F11C85EDFA00A1D8CF /* Ad Hoc */,
+				1AE636F21C85EDFA00A1D8CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1AE636F71C85EDFA00A1D8CF /* Build configuration list for PBXNativeTarget "JFAnalyticsClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AE636F31C85EDFA00A1D8CF /* Debug */,
+				1AE636F41C85EDFA00A1D8CF /* Ad Hoc */,
+				1AE636F51C85EDFA00A1D8CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
