@@ -27,7 +27,6 @@
 #import <sys/utsname.h>
 #import "JFTagOperation.h"
 #import "UIViewController+Tracking.h"
-@import Fabric;
 @import Crashlytics;
 
 #pragma mark ----------------------
