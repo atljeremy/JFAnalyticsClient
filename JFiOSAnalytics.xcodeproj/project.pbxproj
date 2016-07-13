@@ -121,6 +121,14 @@
 		1A40965818CE0CD70068C620 /* jf_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40953618CE0CD60068C620 /* jf_utils.h */; };
 		1A40965918CE0CD70068C620 /* JFAnalyticsClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40953818CE0CD60068C620 /* JFAnalyticsClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A40965A18CE0CD70068C620 /* JFAnalyticsClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40953918CE0CD60068C620 /* JFAnalyticsClient.m */; };
+		1A9438F41D35D78F0057CA54 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438F31D35D78F0057CA54 /* Crashlytics.framework */; };
+		1A9438F51D35D7A50057CA54 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438F31D35D78F0057CA54 /* Crashlytics.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1A9438F71D35D8040057CA54 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438F61D35D8040057CA54 /* Security.framework */; };
+		1A9438F91D35D8140057CA54 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438F81D35D8140057CA54 /* libz.tbd */; };
+		1A9438FB1D35D8200057CA54 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438FA1D35D8200057CA54 /* libc++.tbd */; };
+		1A9438FD1D35D82A0057CA54 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438FC1D35D82A0057CA54 /* SystemConfiguration.framework */; };
+		1A9438FF1D35D87C0057CA54 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438FE1D35D87C0057CA54 /* Fabric.framework */; };
+		1A9439001D35D8B40057CA54 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438FE1D35D87C0057CA54 /* Fabric.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1A9458F917B537A500E39C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9458F817B537A500E39C32 /* Foundation.framework */; };
 		1A94590A17B537A500E39C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A94590917B537A500E39C32 /* UIKit.framework */; };
 		1A94590B17B537A500E39C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9458F817B537A500E39C32 /* Foundation.framework */; };
@@ -392,6 +400,12 @@
 		1A40953E18CE0CD60068C620 /* JFiOSAnalyticsTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JFiOSAnalyticsTests-Info.plist"; sourceTree = "<group>"; };
 		1A40953F18CE0CD60068C620 /* JFiOSAnalyticsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFiOSAnalyticsTests.h; sourceTree = "<group>"; };
 		1A40954018CE0CD60068C620 /* JFiOSAnalyticsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFiOSAnalyticsTests.m; sourceTree = "<group>"; };
+		1A9438F31D35D78F0057CA54 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		1A9438F61D35D8040057CA54 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1A9438F81D35D8140057CA54 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1A9438FA1D35D8200057CA54 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		1A9438FC1D35D82A0057CA54 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1A9438FE1D35D87C0057CA54 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		1A9458F517B537A500E39C32 /* libJFiOSAnalytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJFiOSAnalytics.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9458F817B537A500E39C32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1A94590617B537A500E39C32 /* JFiOSAnalyticsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JFiOSAnalyticsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -411,7 +425,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A9438F41D35D78F0057CA54 /* Crashlytics.framework in Frameworks */,
 				1A9458F917B537A500E39C32 /* Foundation.framework in Frameworks */,
+				1A9438FF1D35D87C0057CA54 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +446,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A9439001D35D8B40057CA54 /* Fabric.framework in Frameworks */,
+				1A9438FD1D35D82A0057CA54 /* SystemConfiguration.framework in Frameworks */,
+				1A9438FB1D35D8200057CA54 /* libc++.tbd in Frameworks */,
+				1A9438F91D35D8140057CA54 /* libz.tbd in Frameworks */,
+				1A9438F71D35D8040057CA54 /* Security.framework in Frameworks */,
+				1A9438F51D35D7A50057CA54 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,9 +798,19 @@
 			path = JFiOSAnalyticsTests;
 			sourceTree = "<group>";
 		};
+		1A9438F21D35D78F0057CA54 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				1A9438FE1D35D87C0057CA54 /* Fabric.framework */,
+				1A9438F31D35D78F0057CA54 /* Crashlytics.framework */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
 		1A9458EC17B537A500E39C32 = {
 			isa = PBXGroup;
 			children = (
+				1A9438F21D35D78F0057CA54 /* Vendor */,
 				1A40951918CE0CD60068C620 /* JFiOSAnalytics */,
 				1A40953A18CE0CD60068C620 /* JFiOSAnalyticsTests */,
 				1AE636E01C85EDFA00A1D8CF /* JFAnalyticsClient */,
@@ -802,6 +834,10 @@
 		1A9458F717B537A500E39C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A9438FC1D35D82A0057CA54 /* SystemConfiguration.framework */,
+				1A9438FA1D35D8200057CA54 /* libc++.tbd */,
+				1A9438F81D35D8140057CA54 /* libz.tbd */,
+				1A9438F61D35D8040057CA54 /* Security.framework */,
 				1A9458F817B537A500E39C32 /* Foundation.framework */,
 				1A94590717B537A500E39C32 /* SenTestingKit.framework */,
 				1A94590917B537A500E39C32 /* UIKit.framework */,
@@ -955,7 +991,8 @@
 		1A9458ED17B537A500E39C32 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastTestingUpgradeCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = rentpath;
 				TargetAttributes = {
 					1AE636DE1C85EDFA00A1D8CF = {
@@ -1217,6 +1254,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1267,6 +1305,7 @@
 					"$(inherited)",
 					"\\\"$(SRCROOT)/JFiOSAnalytics\\\"",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/Vendor",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFiOSAnalytics/JFiOSAnalytics-Prefix.pch";
@@ -1289,6 +1328,7 @@
 					"$(inherited)",
 					"\\\"$(SRCROOT)/JFiOSAnalytics\\\"",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/Vendor",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFiOSAnalytics/JFiOSAnalytics-Prefix.pch";
@@ -1313,6 +1353,7 @@
 				GCC_PREFIX_HEADER = "JFiOSAnalytics/JFiOSAnalytics-Prefix.pch";
 				INFOPLIST_FILE = "JFiOSAnalyticsTests/JFiOSAnalyticsTests-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeremyfox.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = JFiOSAnalyticsTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/JFiOSAnalyticsTests/Libraries/**";
 				WRAPPER_EXTENSION = octest;
@@ -1332,6 +1373,7 @@
 				GCC_PREFIX_HEADER = "JFiOSAnalytics/JFiOSAnalytics-Prefix.pch";
 				INFOPLIST_FILE = "JFiOSAnalyticsTests/JFiOSAnalyticsTests-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeremyfox.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = JFiOSAnalyticsTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/JFiOSAnalyticsTests/Libraries/**";
 				WRAPPER_EXTENSION = octest;
@@ -1378,6 +1420,7 @@
 					"$(inherited)",
 					"\\\"$(SRCROOT)/JFiOSAnalytics\\\"",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/Vendor",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JFiOSAnalytics/JFiOSAnalytics-Prefix.pch";
@@ -1403,6 +1446,7 @@
 				GCC_PREFIX_HEADER = "JFiOSAnalytics/JFiOSAnalytics-Prefix.pch";
 				INFOPLIST_FILE = "JFiOSAnalyticsTests/JFiOSAnalyticsTests-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeremyfox.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = JFiOSAnalyticsTests;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/JFiOSAnalyticsTests/Libraries/**";
 				WRAPPER_EXTENSION = octest;
@@ -1426,6 +1470,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "JFAnalyticsClient/JFiOSAnalytics-Prefix.h";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1466,6 +1514,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "JFAnalyticsClient/JFiOSAnalytics-Prefix.h";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1506,6 +1558,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "JFAnalyticsClient/JFiOSAnalytics-Prefix.h";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1652,6 +1708,7 @@
 				1AE636F21C85EDFA00A1D8CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AE636F71C85EDFA00A1D8CF /* Build configuration list for PBXNativeTarget "JFAnalyticsClientTests" */ = {
 			isa = XCConfigurationList;
@@ -1661,6 +1718,7 @@
 				1AE636F51C85EDFA00A1D8CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

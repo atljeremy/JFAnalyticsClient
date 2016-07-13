@@ -27,6 +27,7 @@
 #import <sys/utsname.h>
 #import "JFTagOperation.h"
 #import "UIViewController+Tracking.h"
+#import  <Crashlytics/Crashlytics.h>
 
 #pragma mark ----------------------
 #pragma mark JFAnalyticsClient_Extension
@@ -148,12 +149,35 @@ static JFAnalyticsClient* _sharedClient = nil;
 #pragma mark Tag Creation and Caching
 #pragma mark ----------------------
 
-- (void)track:(NSDictionary *)tags
+- (void)trackEventWithName:(NSString*)name tags:(NSDictionary<NSString*, id>*)tags
+{
+    Class _Answers;
+    if ((_Answers = NSClassFromString(@"Answers"))) {
+        [_Answers logCustomEventWithName:name customAttributes:tags];
+    }
+    
+    [self trackTags:tags];
+}
+
+- (void)trackContentViewWithName:(NSString*)name tags:(NSDictionary<NSString*, id>*)tags
+{
+    Class _Answers;
+    if ((_Answers = NSClassFromString(@"Answers"))) {
+        [_Answers logCustomEventWithName:name customAttributes:tags];
+    }
+    
+    [self trackTags:tags];
+}
+
+- (void)trackTags:(NSDictionary<NSString*, id>*)tags
 {
     if (!self.userID || self.userID == 0) {
         [self processSession];
     }
     if (tags && tags.allValues.count > 0) {
+        
+        
+        
         NSString *trackingUrl = nil;
         trackingUrl = [self build:tags];
         NSLog(@"JFAnalyticsClient: queued this tag: @@@@@%@", trackingUrl);

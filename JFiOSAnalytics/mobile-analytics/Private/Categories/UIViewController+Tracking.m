@@ -60,7 +60,7 @@
     if ([JFAnalyticsClient sharedClient].isTrackingViewControllerViewDidAppearEvents) {
         NSString* class = NSStringFromClass(self.class);
         if ([class rangeOfString:@"UI"].location == NSNotFound) {
-            [[JFAnalyticsClient sharedClient] track:@{@"pageView": class}];
+            [[JFAnalyticsClient sharedClient] trackContentViewWithName:class tags:nil];
         }
     }
 }

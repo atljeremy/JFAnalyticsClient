@@ -70,7 +70,7 @@
         superviewName && superviewName.length > 0 &&
         viewDetailedName && viewDetailedName.length > 0) {
         
-        [[JFAnalyticsClient sharedClient] track:@{@"element-desc": viewDetailedName, @"element": viewName, @"superview": superviewName}];
+        [[JFAnalyticsClient sharedClient] trackEventWithName:@"UI Action" tags:@{@"element-desc": viewDetailedName, @"element": viewName, @"superview": superviewName}];
     }
     
     return [self JF_sendAction:action to:target from:sender forEvent:event];
