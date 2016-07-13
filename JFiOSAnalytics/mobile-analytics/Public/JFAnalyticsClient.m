@@ -152,9 +152,8 @@ static JFAnalyticsClient* _sharedClient = nil;
 
 - (void)trackEventWithName:(NSString*)name tags:(NSDictionary<NSString*, id>*)tags
 {
-    Class _Answers;
-    if ((_Answers = NSClassFromString(@"Answers"))) {
-        [_Answers logCustomEventWithName:name customAttributes:tags];
+    if (NSClassFromString(@"Answers")) {
+        [Answers logCustomEventWithName:name customAttributes:tags];
     }
     
     [self trackTags:tags];
@@ -162,9 +161,8 @@ static JFAnalyticsClient* _sharedClient = nil;
 
 - (void)trackContentViewWithName:(NSString*)name tags:(NSDictionary<NSString*, id>*)tags
 {
-    Class _Answers;
-    if ((_Answers = NSClassFromString(@"Answers"))) {
-        [_Answers logCustomEventWithName:name customAttributes:tags];
+    if (NSClassFromString(@"Answers")) {
+        [Answers logCustomEventWithName:name customAttributes:tags];
     }
     
     [self trackTags:tags];
@@ -175,10 +173,8 @@ static JFAnalyticsClient* _sharedClient = nil;
     if (!self.userID || self.userID == 0) {
         [self processSession];
     }
+    
     if (tags && tags.allValues.count > 0) {
-        
-        
-        
         NSString *trackingUrl = nil;
         trackingUrl = [self build:tags];
         NSLog(@"JFAnalyticsClient: queued this tag: @@@@@%@", trackingUrl);
