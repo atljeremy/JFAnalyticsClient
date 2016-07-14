@@ -234,6 +234,8 @@ static JFAnalyticsClient* _sharedClient = nil;
 {
     if (!self.sendingTagsToKeenIO) {
         return;
+    } else if (!self.keenIOProjectID || !self.keenIOWriteKey) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"JFAnalyticsClient - You must set the appropriate keenIO properties before trying to send tags to your keen.io account." userInfo:nil];
     }
     
     if (!self.userID || self.userID == 0) {

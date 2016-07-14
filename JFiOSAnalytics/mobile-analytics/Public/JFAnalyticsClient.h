@@ -104,7 +104,7 @@
 - (BOOL)isTrackingViewControllerViewDidAppearEvents;
 
 /**
- * @return Use this method to start or stop tracking UIViewController viewDidAppear events.
+ * @return Use this method to start or stop sending tagging data to keen.io. If this is set to YES, then the `keenIOProjectID`, `keenIOWriteKey`, and `keenIOReadKey` need to be set. If they are not set, the network requests will fail and tagging data will be lost.
  * @param trackEvents The BOOL representing whether to turn on (YES) or turn off (NO) view controller viewDidAppear event track.
  */
 - (void)setSendingTagsToKeenIO:(BOOL)sendingTagsToKeenIO;
