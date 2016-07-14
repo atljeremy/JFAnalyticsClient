@@ -31,24 +31,9 @@
 @interface JFAnalyticsClient : NSObject
 
 /**
- * @return Your keen.io project ID.
- */
-@property (nonatomic, strong, readonly) NSString *projectID;
-
-/**
- * @return Your keen.io write key.
- */
-@property (nonatomic, strong, readonly) NSString *writeKey;
-
-/**
- * @return Your keen.io read key.
- */
-@property (nonatomic, strong, readonly) NSString *readKey;
-
-/**
  * @return Use this to differentiate your development and production builds.
  */
-@property (nonatomic, strong, readonly) NSString *environemnt;
+@property (nonatomic, strong, readonly) NSString *environment;
 
 /**
  * @return The tag queue limit. Use setTagQueueLimit: to set a custom queue limit. Default is 20.
@@ -61,12 +46,25 @@
 @property (nonatomic, strong, readonly) NSMutableDictionary* globalTags;
 
 /**
- * @return Use to initialize JFAnalyticsClient with your keen.io project ID, write key, and read key. This method must be called before trying to access sharedClient.
- * @param projectID Your keen.io project ID
- * @param writeKey Your keen.io write key
- * @param readKey Your keen.io read key
+ * @return Keen IO Tracking - Project ID
  */
-+ (instancetype)clientWithProjectID:(NSString*)projectID writeKey:(NSString*)writeKey readKey:(NSString*)readKey;
+@property (nonatomic, strong) NSString *keenIOProjectID;
+
+/**
+ * @return Keen IO Tracking - Write Key
+ */
+@property (nonatomic, strong) NSString *keenIOWriteKey;
+
+/**
+ * @return Keen IO Tracking - Read Key
+ */
+@property (nonatomic, strong) NSString *keenIOReadKey;
+
+
+/**
+ * @return Use to initialize JFAnalyticsClient with your keen.io project ID, write key, and read key. This method must be called before trying to access sharedClient.
+ */
++ (instancetype)initializeClient;
 
 /**
  * @return The single instance of JFAnalyticsClient. This should be used whenever needing an instance of JFAnalyticsClient instead of allocating a new instance. You must call initializeClientWithProjectID:writeKey:readKey: before trying to access the sharedClient.
@@ -106,6 +104,17 @@
 - (BOOL)isTrackingViewControllerViewDidAppearEvents;
 
 /**
+ * @return Use this method to start or stop tracking UIViewController viewDidAppear events.
+ * @param trackEvents The BOOL representing whether to turn on (YES) or turn off (NO) view controller viewDidAppear event track.
+ */
+- (void)setSendingTagsToKeenIO:(BOOL)sendingTagsToKeenIO;
+
+/**
+ * @return Use this method to check the state of UIViewController viewDidAppear event tracking. If this returns YES, tracking is enabled. If this returns NO, tracking is disabled.
+ */
+- (BOOL)isSendingTagsToKeenIO;
+
+/**
  * @return Use this method to queue a tagging event. All queued tagging events will be sent to keen.io after the queueLimit has been reached or when the applicaiton is backgrounded.
  * @param tags An NSDictionary of all custom tagging event KVP's to track.
  */
@@ -133,5 +142,33 @@
  * @return A helper method to determine if the application is being launched for the first time of a specific version.
  */
 - (BOOL)isFirstLaunchOfThisVersion;
+
+
+/*************************************************************************
+ ****************************** DEPRECATED *******************************
+ ************************************************************************/
+
+/**
+ * @return Your keen.io project ID.
+ */
+@property (nonatomic, strong, readonly) NSString *projectID DEPRECATED_MSG_ATTRIBUTE("Use keenIOReadKey instead.");
+
+/**
+ * @return Your keen.io write key.
+ */
+@property (nonatomic, strong, readonly) NSString *writeKey DEPRECATED_MSG_ATTRIBUTE("Use keenIOReadKey instead.");
+
+/**
+ * @return Your keen.io read key.
+ */
+@property (nonatomic, strong, readonly) NSString *readKey DEPRECATED_MSG_ATTRIBUTE("Use keenIOReadKey instead.");
+
+/**
+ * @return Use to initialize JFAnalyticsClient with your keen.io project ID, write key, and read key. This method must be called before trying to access sharedClient.
+ * @param projectID Your keen.io project ID
+ * @param writeKey Your keen.io write key
+ * @param readKey Your keen.io read key
+ */
++ (instancetype)clientWithProjectID:(NSString*)projectID writeKey:(NSString*)writeKey readKey:(NSString*)readKey DEPRECATED_MSG_ATTRIBUTE("If using keeIO tracking, use +initializeClient and set the keenIO properties instead.");
 
 @end

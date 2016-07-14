@@ -38,6 +38,7 @@ static NSString* const kJFAnalyticsClientTagQueueName = @"JFAnalyticsClientTagQu
 
 @interface JFAnalyticsClient()
 @property (nonatomic, assign) BOOL trackingViewControllerViewDidAppearEvents;
+@property (nonatomic, assign) BOOL sendingTagsToKeenIO;
 @end
 
 @implementation JFAnalyticsClient
@@ -53,13 +54,14 @@ static JFAnalyticsClient* _sharedClient = nil;
         _tagQueue = [[NSOperationQueue alloc] init];
         _tagQueue.name = kJFAnalyticsClientTagQueueName;
         _tagQueue.maxConcurrentOperationCount = 4;
-        _environemnt = @"no_env";
+        _environment = @"no_env";
         _lastUsedVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kJFAnalyticsClientLastUsedVersion];
         _includeFirstVisit = NO;
         _sendingTags = NO;
         _tagQueueLimit = kJFAnalyticsClientDefaultTagQueueLimit;
         _globalTags = [@{} mutableCopy];
         _trackingViewControllerViewDidAppearEvents = YES;
+        _sendingTagsToKeenIO = YES;
     }
     return self;
 }
@@ -77,9 +79,27 @@ static JFAnalyticsClient* _sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^(void) {
         _sharedClient = [[self alloc] init];
-        _sharedClient.projectID = projectID;
-        _sharedClient.writeKey = writeKey;
-        _sharedClient.readKey = readKey;
+        _sharedClient.keenIOProjectID = projectID;
+        _sharedClient.keenIOWriteKey = writeKey;
+        _sharedClient.keenIOReadKey = readKey;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:_sharedClient selector:@selector(processSession) name:UIApplicationDidBecomeActiveNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:_sharedClient selector:@selector(markTimePaused) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    });
+    
+    return _sharedClient;
+}
+
++ (instancetype)initializeClient
+{
+    if (_sharedClient) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"JFAnalyticsClient already initialized. Pelase access JFAnalyticsClient through sharedClient after calling +initializeClient." userInfo:nil];
+    }
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^(void) {
+        _sharedClient = [[self alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:_sharedClient selector:@selector(processSession) name:UIApplicationDidBecomeActiveNotification object:nil];
         
@@ -102,9 +122,19 @@ static JFAnalyticsClient* _sharedClient = nil;
 #pragma mark Configuration
 #pragma mark ----------------------
 
+- (void)setSendingTagsToKeenIO:(BOOL)sendingTagsToKeenIO
+{
+    _sendingTagsToKeenIO = sendingTagsToKeenIO;
+}
+
+- (BOOL)isSendingTagsToKeenIO
+{
+    return _sendingTagsToKeenIO;
+}
+
 - (void)setEnvironment:(NSString*)environemnt;
 {
-    _environemnt = environemnt;
+    _environment = environemnt;
 }
 
 - (void)setTagQueueLimit:(NSInteger)limit
@@ -120,6 +150,39 @@ static JFAnalyticsClient* _sharedClient = nil;
 - (BOOL)isTrackingViewControllerViewDidAppearEvents
 {
     return _trackingViewControllerViewDidAppearEvents;
+}
+
+- (NSString*)keenIOProjectID
+{
+    if (_keenIOProjectID) {
+        return _keenIOProjectID;
+    } else if (_projectID) {
+        return _projectID;
+    }
+    
+    return nil;
+}
+
+- (NSString*)keenIOWriteKey
+{
+    if (_keenIOWriteKey) {
+        return _keenIOWriteKey;
+    } else if (_writeKey) {
+        return _writeKey;
+    }
+    
+    return nil;
+}
+
+- (NSString*)keenIOReadKey
+{
+    if (_keenIOReadKey) {
+        return _keenIOReadKey;
+    } else if (_readKey) {
+        return _readKey;
+    }
+    
+    return nil;
 }
 
 #pragma mark ----------------------
@@ -169,6 +232,10 @@ static JFAnalyticsClient* _sharedClient = nil;
 
 - (void)trackTags:(NSDictionary<NSString*, id>*)tags
 {
+    if (!self.sendingTagsToKeenIO) {
+        return;
+    }
+    
     if (!self.userID || self.userID == 0) {
         [self processSession];
     }
@@ -200,7 +267,7 @@ static JFAnalyticsClient* _sharedClient = nil;
         self.includeFirstVisit = NO;
     }
     
-    [myMap setValue:self.environemnt forKey:@"env"];
+    [myMap setValue:self.environment forKey:@"env"];
     [myMap addEntriesFromDictionary:self.globalTags];
     
     return [myMap stringWithURLEncodedEntries];

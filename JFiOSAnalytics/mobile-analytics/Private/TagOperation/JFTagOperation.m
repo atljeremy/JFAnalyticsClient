@@ -62,7 +62,7 @@ static NSString* const kKeenApiVersion = @"3.0";
             return;
         }
     
-        NSString *tagURLString = [NSString stringWithFormat:@"%@/%@/projects/%@/events", kKeenServerAddress, kKeenApiVersion, [JFAnalyticsClient sharedClient].projectID];
+        NSString *tagURLString = [NSString stringWithFormat:@"%@/%@/projects/%@/events", kKeenServerAddress, kKeenApiVersion, [JFAnalyticsClient sharedClient].keenIOProjectID];
         NSLog(@"Sending request to: %@", tagURLString);
         NSURL *url = [NSURL URLWithString:tagURLString];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -74,7 +74,7 @@ static NSString* const kKeenApiVersion = @"3.0";
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:[JFAnalyticsClient sharedClient].writeKey forHTTPHeaderField:@"Authorization"];
+        [request setValue:[JFAnalyticsClient sharedClient].keenIOWriteKey forHTTPHeaderField:@"Authorization"];
         
         if (self.isCancelled) {
             return;

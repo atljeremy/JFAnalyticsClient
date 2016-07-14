@@ -121,13 +121,11 @@
 		1A40965818CE0CD70068C620 /* jf_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40953618CE0CD60068C620 /* jf_utils.h */; };
 		1A40965918CE0CD70068C620 /* JFAnalyticsClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A40953818CE0CD60068C620 /* JFAnalyticsClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A40965A18CE0CD70068C620 /* JFAnalyticsClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40953918CE0CD60068C620 /* JFAnalyticsClient.m */; };
-		1A9438F41D35D78F0057CA54 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438F31D35D78F0057CA54 /* Crashlytics.framework */; };
 		1A9438F51D35D7A50057CA54 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438F31D35D78F0057CA54 /* Crashlytics.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1A9438F71D35D8040057CA54 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438F61D35D8040057CA54 /* Security.framework */; };
 		1A9438F91D35D8140057CA54 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438F81D35D8140057CA54 /* libz.tbd */; };
 		1A9438FB1D35D8200057CA54 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438FA1D35D8200057CA54 /* libc++.tbd */; };
 		1A9438FD1D35D82A0057CA54 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438FC1D35D82A0057CA54 /* SystemConfiguration.framework */; };
-		1A9438FF1D35D87C0057CA54 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438FE1D35D87C0057CA54 /* Fabric.framework */; };
 		1A9439001D35D8B40057CA54 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9438FE1D35D87C0057CA54 /* Fabric.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1A9458F917B537A500E39C32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9458F817B537A500E39C32 /* Foundation.framework */; };
 		1A94590A17B537A500E39C32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A94590917B537A500E39C32 /* UIKit.framework */; };
@@ -425,9 +423,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A9438F41D35D78F0057CA54 /* Crashlytics.framework in Frameworks */,
 				1A9458F917B537A500E39C32 /* Foundation.framework in Frameworks */,
-				1A9438FF1D35D87C0057CA54 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
