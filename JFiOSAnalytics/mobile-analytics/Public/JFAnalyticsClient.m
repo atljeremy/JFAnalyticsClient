@@ -61,7 +61,7 @@ static JFAnalyticsClient* _sharedClient = nil;
         _tagQueueLimit = kJFAnalyticsClientDefaultTagQueueLimit;
         _globalTags = [@{} mutableCopy];
         _trackingViewControllerViewDidAppearEvents = YES;
-        _sendingTagsToKeenIO = YES;
+        _sendingTagsToKeenIO = NO;
     }
     return self;
 }
